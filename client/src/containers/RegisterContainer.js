@@ -59,7 +59,7 @@ function RegisterContainer(props) {
 
 
     return (
-        <div className=" grid justify-center mx-6 mt-4 sm:mt-16 xl:mt-32 sm:w-96 sm:mx-auto mb-10 sm:mb-16 p-5 rounded-2xl shadow-2xl mb-10 sm:mb-20">
+        <div className=" grid justify-center mx-6 mt-4 sm:mt-16 xl:mt-20 sm:w-96 sm:mx-auto mb-10 sm:mb-16 p-5 rounded-2xl shadow-2xl mb-10 sm:mb-20">
             <h1 className="text-4xl font-semibold text-center text-orange-400 text-shadow">Contacts</h1>
             <img src={logo} className="mx-auto w-32 mt-5"/>
             <h3 className="mt-1 ml-1 font-bold mt-5">Email*</h3>

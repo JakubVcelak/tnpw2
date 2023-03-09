@@ -29,7 +29,7 @@ function App() {
     };
 
   return (
-    <div className="font-mono sm:mx-14 md:mx-32 lg:mx-64 xl:mx-80 2xl:mx-96">
+    <div className="font-mono sm:mx-14 md:mx-32 lg:mx-48 xl:mx-64 2xl:mx-96">
         <SelectedContactContext.Provider value={{selectedContact, setSelectedContact}}>
           <Routes>
               <Route path="/" element={<PrivateRoute component={<MainContainer/>}/>}></Route>

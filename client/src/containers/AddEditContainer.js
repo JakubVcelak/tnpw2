@@ -81,7 +81,7 @@ function AddEditContainer(props) {
         <div>
             <Header/>
             <img src={back} onClick={()=>{navigate('/')}} className="grid shadow-xl rounded-2xl bg-orange-400 w-12 h-12 sm:w-14 sm:h-14 font-bold mt-5 mx-auto lg:hover:h-16 lg:hover:w-16 ease-in duration-300 cursor-pointer "/>
-            <div className=" grid justify-center mt-5 sm:w-96 mx-6 sm:mx-auto p-5 rounded-2xl shadow-2xl my-10 sm:my-20  ">
+            <div className=" grid justify-center mt-5 sm:w-96 mx-6 sm:mx-auto p-5 rounded-2xl shadow-2xl my-10 ">
                 <h1 className="text-4xl font-semibold text-center text-orange-400">{selectedContact !== ''? "Update contact": "Add contact"}</h1>
                 <h3 className="mt-1 ml-1 font-bold mt-5 text">First name*</h3>
                 <input className="sm:font-bold w-72 sm:w-80 h-10 shadow-lg bg-gray-100 rounded-md pl-2 outline-none text-orange-400" placeholder="First name*" value={firstName} onChange={(e => setFirstname(e.target.value))}/>
