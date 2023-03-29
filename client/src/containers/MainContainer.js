@@ -44,7 +44,7 @@ function MainContainer() {
         <div>
             <Header/>
             <ContactsContext.Provider value={{contacts, setContacts}}>
-                <img src={add} onClick={handleAddEdit} className= "mx-auto w-12 h-12 sm:w-14 sm:h-14 bg-orange-400 p-1 shadow-lg rounded-xl mt-5  hover:cursor-pointer lg:hover:w-16 lg:hover:h-16 ease-in duration-300"/>
+                <img src={add} alt="add" onClick={handleAddEdit} className= "mx-auto w-12 h-12 sm:w-14 sm:h-14 bg-orange-400 p-1 shadow-lg rounded-xl mt-5  hover:cursor-pointer lg:hover:w-16 lg:hover:h-16 ease-in duration-300"/>
                 <div className="flex flex-wrap justify-center">
                     {renderContacts(contacts)}
                 </div>

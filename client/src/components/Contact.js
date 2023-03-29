@@ -34,9 +34,9 @@ function Contact(props) {
             <h1 className="font-bold text-2xl text-orange-400">{props.firstName} {props.lastName}</h1>
             <h2 className="text-lg"> <span className="font-bold">Phone number:</span> {props.phone}</h2>
             <div className="flex justify-center mt-2">
-                <img src={detail} onClick={()=>{navigate('/details'); setSelectedContact(props.id)}} className= "w-8 h-8 bg-green-500 p-1 rounded-xl hover:cursor-pointer lg:hover:w-9 lg:hover:h-9 ease-in duration-300 shadow-lg"/>
-                <img src={edit} onClick={()=>{navigate('/addedit'); setSelectedContact(props.id)}} className= "ml-3 w-8 h-8 bg-yellow-400 p-1 rounded-xl hover:cursor-pointer lg:hover:w-9 lg:hover:h-9 ease-in duration-300 shadow-lg"/>
-                <img src={del} onClick={handleDelete} className= " ml-3 w-8 h-8 bg-red-500 p-1 rounded-xl  hover:cursor-pointer lg:hover:w-9 lg:hover:h-9 ease-in duration-300 shadow-lg"/>
+                <img src={detail} alt="detail" onClick={()=>{navigate('/details'); setSelectedContact(props.id)}} className= "w-8 h-8 bg-green-500 p-1 rounded-xl hover:cursor-pointer lg:hover:w-9 lg:hover:h-9 ease-in duration-300 shadow-lg"/>
+                <img src={edit} alt="edit" onClick={()=>{navigate('/addedit'); setSelectedContact(props.id)}} className= "ml-3 w-8 h-8 bg-yellow-400 p-1 rounded-xl hover:cursor-pointer lg:hover:w-9 lg:hover:h-9 ease-in duration-300 shadow-lg"/>
+                <img src={del} alt="delete" onClick={handleDelete} className= " ml-3 w-8 h-8 bg-red-500 p-1 rounded-xl  hover:cursor-pointer lg:hover:w-9 lg:hover:h-9 ease-in duration-300 shadow-lg"/>
             </div>
         </div>
     );

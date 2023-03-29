@@ -20,7 +20,7 @@ function RegisterContainer(props) {
             NotificationManager.warning('Please fill all required fields.', "",2000 )
             return
         }
-        if(password != cPassword){
+        if(password !== cPassword){
             NotificationManager.error('Different passwords!', "",3000 )
             return;
         }
@@ -61,7 +61,7 @@ function RegisterContainer(props) {
     return (
         <div className=" grid justify-center mx-6 mt-4 sm:mt-16 xl:mt-20 sm:w-96 sm:mx-auto mb-10 sm:mb-16 p-5 rounded-2xl shadow-2xl mb-10 sm:mb-20">
             <h1 className="text-4xl font-semibold text-center text-orange-400 text-shadow">Contacts</h1>
-            <img src={logo} className="mx-auto w-32 mt-5"/>
+            <img src={logo} alt="logo" className="mx-auto w-32 mt-5"/>
             <h3 className="mt-1 ml-1 font-bold mt-5">Email*</h3>
             <input className="sm:font-semibold sm:w-80 h-10 shadow-lg bg-gray-100 rounded-md pl-2 outline-none text-orange-400" placeholder="Email*" value={email} onChange={(e => setEmail(e.target.value))}/>
             <h3 className="mt-1 ml-1 font-bold mt-5">Login*  <span className="mt-1 ml-1 text-sm font-normal">(min 5 characters)</span></h3>
