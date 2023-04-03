@@ -33,7 +33,7 @@ function RegisterContainer(props) {
             return;
         }
 
-        axios.post("https://good-red-hedgehog-kilt.cyclic.app/register", {email: email, login: login, password: password})
+        axios.post("http://127.0.0.1:3001/register", {email: email, login: login, password: password})
             .then((response) => {
                 if(response.data === ""){
                     NotificationManager.error('Username already exists.', "",3000 )

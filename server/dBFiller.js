@@ -26,7 +26,7 @@ const contacts =[
 //connect DB
 async function connectDB() {
     try {
-        await mongoose.connect(process.env.DATABASE_URI);
+        await mongoose.connect('mongodb://127.0.0.1:27017/contactApp');
     } catch (error) {
         console.error(error);
     }

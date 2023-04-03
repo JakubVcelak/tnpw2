@@ -18,7 +18,7 @@ function LoginContainer(props) {
             NotificationManager.warning('Please fill all fields.', "",2000 )
             return;
         }
-            axios.post("https://good-red-hedgehog-kilt.cyclic.app/login", {login: login, password: password})
+            axios.post("http://127.0.0.1:3001/login", {login: login, password: password})
                 .then((response) => {
                     if(response.data.accessToken){
                         signIn({

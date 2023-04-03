@@ -17,7 +17,7 @@ function Contact(props) {
     const navigate = useNavigate()
 
     function handleDelete() {
-        axios.delete("https://good-red-hedgehog-kilt.cyclic.app/deleteContact", {params:{id: props.id, login: auth().login, token: document.cookie.split(";")[0].split("=")[1]}})
+        axios.delete("http://127.0.0.1:3001/deleteContact", {params:{id: props.id, login: auth().login, token: document.cookie.split(";")[0].split("=")[1]}})
             .then((response) => {
                 if(response.data === ""){
                     NotificationManager.error('Server error!', "",3000 )

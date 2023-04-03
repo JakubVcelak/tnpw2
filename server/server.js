@@ -126,7 +126,6 @@ app.put('/updateContact', authenticateToken, async(req,res) =>{
 })
 
 app.delete('/deleteContact', authenticateToken, async(req,res) =>{
-    console.log(req.query.id)
 
     //najít podle id
     const contact = await Contact.findOne({ _id: req.query.id }).exec();
@@ -160,7 +159,7 @@ function authenticateToken(req, res, next) {
 
 async function connectDB() {
     try {
-        await mongoose.connect(process.env.DATABASE_URI);
+        await mongoose.connect('mongodb://127.0.0.1:27017/contactApp');
     } catch (error) {
         console.error(error);
     }

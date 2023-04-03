@@ -25,7 +25,7 @@ function AddEditContainer(props) {
     useEffect(() => {
         if(selectedContact==='')
             return
-        axios.get("https://good-red-hedgehog-kilt.cyclic.app/contact", {params:{id: selectedContact, login: auth().login, token: document.cookie.split(";")[0].split("=")[1]}})
+        axios.get("http://127.0.0.1:3001/contact", {params:{id: selectedContact, login: auth().login, token: document.cookie.split(";")[0].split("=")[1]}})
             .then((response) => {
                 if(response.data === ""){
                     NotificationManager.error('Server error!', "",3000 )
@@ -52,7 +52,7 @@ function AddEditContainer(props) {
             return
         }
         if(selectedContact === ''){
-            axios.post("https://good-red-hedgehog-kilt.cyclic.app/createContact", {login: auth().login, token: document.cookie.split(";")[0].split("=")[1], input: input})
+            axios.post("http://127.0.0.1:3001/createContact", {login: auth().login, token: document.cookie.split(";")[0].split("=")[1], input: input})
                 .then((response) => {
                     if(response.data === ""){
                         NotificationManager.error('Server error!', "",3000 )
@@ -64,7 +64,7 @@ function AddEditContainer(props) {
                     console.log(error);
                 });
         }else{
-            axios.put("https://good-red-hedgehog-kilt.cyclic.app/updateContact", {login: auth().login, token: document.cookie.split(";")[0].split("=")[1], input: input, id: selectedContact})
+            axios.put("http://127.0.0.1:3001/updateContact", {login: auth().login, token: document.cookie.split(";")[0].split("=")[1], input: input, id: selectedContact})
                 .then((response) => {
                     if(response.data === ""){
                         NotificationManager.error('Server error!', "",3000 )

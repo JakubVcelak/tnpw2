@@ -23,7 +23,7 @@ function DetailsContainer(props) {
 
     //get details about contact
     useEffect(() => {
-        axios.get("https://good-red-hedgehog-kilt.cyclic.app/contact", {params:{id: selectedContact, login: auth().login, token: document.cookie.split(";")[0].split("=")[1]}})
+        axios.get("http://127.0.0.1:3001/contact", {params:{id: selectedContact, login: auth().login, token: document.cookie.split(";")[0].split("=")[1]}})
             .then((response) => {
                 if(response.data === ""){
                     NotificationManager.error('Server error!', "",3000 )

@@ -20,7 +20,7 @@ function MainContainer() {
     useEffect(() => {
         setSelectedContact('')
         setTimeout(()=>{
-            axios.get("https://good-red-hedgehog-kilt.cyclic.app/contacts", {params:{login: auth().login, token: document.cookie.split(";")[0].split("=")[1]}})
+            axios.get("http://127.0.0.1:3001/contacts", {params:{login: auth().login, token: document.cookie.split(";")[0].split("=")[1]}})
                 .then((response) => {
                     if(response.data === ""){
                         NotificationManager.error('Server error!', "",3000 )
@@ -33,10 +33,6 @@ function MainContainer() {
         }, 1);
     },[]);
 
-    //TODO předělat?
-    function handleAddEdit() {
-        navigate('/addedit')
-    }
 
     //render all contacts
     function renderContacts(con) {
@@ -47,7 +43,7 @@ function MainContainer() {
         <div>
             <Header/>
             <ContactsContext.Provider value={{contacts, setContacts}}>
-                <img src={add} alt="add" onClick={handleAddEdit} className= "mx-auto w-12 h-12 sm:w-14 sm:h-14 bg-orange-400 p-1 shadow-lg rounded-xl mt-5  hover:cursor-pointer lg:hover:w-16 lg:hover:h-16 ease-in duration-300"/>
+                <img src={add} alt="add" onClick={()=>{navigate('/addedit')}} className= "mx-auto w-12 h-12 sm:w-14 sm:h-14 bg-orange-400 p-1 shadow-lg rounded-xl mt-5  hover:cursor-pointer lg:hover:w-16 lg:hover:h-16 ease-in duration-300"/>
                 <div className="flex flex-wrap justify-center">
                     {renderContacts(contacts)}
                 </div>
