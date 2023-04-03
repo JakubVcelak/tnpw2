@@ -9,6 +9,7 @@ import {useNavigate} from "react-router-dom";
 import {SelectedContactContext} from "../App";
 import {NotificationManager} from "react-notifications";
 
+//contact component
 function Contact(props) {
     const auth = useAuthUser()
     const {contacts, setContacts} = useContext(ContactsContext)
@@ -16,7 +17,7 @@ function Contact(props) {
     const navigate = useNavigate()
 
     function handleDelete() {
-        axios.delete("http://localhost:3001/deleteContact", {params:{id: props.id, login: auth().login, token: document.cookie.split(";")[0].split("=")[1]}})
+        axios.delete("https://good-red-hedgehog-kilt.cyclic.app/deleteContact", {params:{id: props.id, login: auth().login, token: document.cookie.split(";")[0].split("=")[1]}})
             .then((response) => {
                 if(response.data === ""){
                     NotificationManager.error('Server error!', "",3000 )

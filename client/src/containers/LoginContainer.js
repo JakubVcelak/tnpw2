@@ -5,19 +5,20 @@ import logo from "../res/logo.png"
 import { useNavigate } from "react-router-dom";
 import {NotificationManager} from "react-notifications";
 
+//login container
 function LoginContainer(props) {
     const [login, setLogin] = useState("")
     const [password, setPassword] = useState("")
     const signIn = useSignIn();
     const navigate = useNavigate()
 
-
+    //handle login
     function handleLogin() {
         if(login === "" || password === ""){
             NotificationManager.warning('Please fill all fields.', "",2000 )
             return;
         }
-            axios.post("http://localhost:3001/login", {login: login, password: password})
+            axios.post("https://good-red-hedgehog-kilt.cyclic.app/login", {login: login, password: password})
                 .then((response) => {
                     if(response.data.accessToken){
                         signIn({

@@ -5,8 +5,7 @@ import logo from "../res/logo.png"
 import { useNavigate } from "react-router-dom";
 import {NotificationManager} from 'react-notifications';
 
-
-
+// container for user registration
 function RegisterContainer(props) {
     const [email, setEmail] = useState("")
     const [login, setLogin] = useState("")
@@ -15,6 +14,7 @@ function RegisterContainer(props) {
     const signIn = useSignIn();
     const navigate = useNavigate()
 
+    //handle registration
     function handleRegister() {
         if(email ==="" || login ==="" || password ==="" || cPassword ===""){
             NotificationManager.warning('Please fill all required fields.', "",2000 )
@@ -33,8 +33,7 @@ function RegisterContainer(props) {
             return;
         }
 
-
-        axios.post("http://localhost:3001/register", {email: email, login: login, password: password})
+        axios.post("https://good-red-hedgehog-kilt.cyclic.app/register", {email: email, login: login, password: password})
             .then((response) => {
                 if(response.data === ""){
                     NotificationManager.error('Username already exists.', "",3000 )

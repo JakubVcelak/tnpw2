@@ -1,5 +1,6 @@
 import React from 'react';
 
+//footer component
 function Footer(props) {
     return (
         <div className="text-center mx-5 mt-3 mb-2 sm:mt-8 text-xs sm:text-sm">

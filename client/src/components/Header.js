@@ -5,6 +5,7 @@ import logo from "../res/logo.png";
 import logout from "../res/logout.png";
 import {useNavigate} from "react-router-dom";
 
+//header component
 function Header(props) {
     const singOut = useSignOut();
     const auth = useAuthUser()

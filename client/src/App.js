@@ -11,17 +11,19 @@ import DetailsContainer from "./containers/DetailsContainer";
 import React, {createContext, useEffect, useState} from 'react';
 export const SelectedContactContext = createContext('')
 
+//app component
 function App() {
     const singOut = useSignOut();
     const navigate = useNavigate()
     const [selectedContact, setSelectedContact] = useState()
 
+    //redirecting to main page when web loads
     useEffect(() => {
         singOut()
         navigate("/")
     }, []);
 
-
+    //authentication to specific route
     const PrivateRoute = (props) => {
         const isAuthenticated = useIsAuthenticated();
         const auth = isAuthenticated();

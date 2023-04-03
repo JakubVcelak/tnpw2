@@ -7,6 +7,7 @@ import axios from "axios";
 import {SelectedContactContext} from "../App";
 import {NotificationManager} from "react-notifications";
 
+//container for contact details
 function DetailsContainer(props) {
     const navigate = useNavigate()
     const auth = useAuthUser()
@@ -20,8 +21,9 @@ function DetailsContainer(props) {
     const [work,setWork] =useState("")
     const [email, setEmail] =useState("")
 
+    //get details about contact
     useEffect(() => {
-        axios.get("http://localhost:3001/contact", {params:{id: selectedContact, login: auth().login, token: document.cookie.split(";")[0].split("=")[1]}})
+        axios.get("https://good-red-hedgehog-kilt.cyclic.app/contact", {params:{id: selectedContact, login: auth().login, token: document.cookie.split(";")[0].split("=")[1]}})
             .then((response) => {
                 if(response.data === ""){
                     NotificationManager.error('Server error!', "",3000 )

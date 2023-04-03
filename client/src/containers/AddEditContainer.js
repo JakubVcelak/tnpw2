@@ -7,6 +7,7 @@ import axios from "axios";
 import {SelectedContactContext} from "../App";
 import {NotificationManager} from "react-notifications";
 
+//container for adding and editing contacts
 function AddEditContainer(props) {
     const navigate = useNavigate()
     const auth = useAuthUser()
@@ -20,11 +21,11 @@ function AddEditContainer(props) {
     const [work,setWork] =useState("")
     const [email, setEmail] =useState("")
 
-
+    //get details about contact
     useEffect(() => {
         if(selectedContact==='')
             return
-        axios.get("http://localhost:3001/contact", {params:{id: selectedContact, login: auth().login, token: document.cookie.split(";")[0].split("=")[1]}})
+        axios.get("https://good-red-hedgehog-kilt.cyclic.app/contact", {params:{id: selectedContact, login: auth().login, token: document.cookie.split(";")[0].split("=")[1]}})
             .then((response) => {
                 if(response.data === ""){
                     NotificationManager.error('Server error!', "",3000 )
@@ -43,7 +44,7 @@ function AddEditContainer(props) {
     }, []);
 
 
-
+    //add or edit contact depends on selected contact
     function handleSubmit() {
         const input ={firstName: firstName, lastName: lastName, phone:phone, comment:comment, group:group, work:work, email:email}
         if(firstName === '' || lastName ==='' || phone ===''){
@@ -51,7 +52,7 @@ function AddEditContainer(props) {
             return
         }
         if(selectedContact === ''){
-            axios.post("http://localhost:3001/createContact", {login: auth().login, token: document.cookie.split(";")[0].split("=")[1], input: input})
+            axios.post("https://good-red-hedgehog-kilt.cyclic.app/createContact", {login: auth().login, token: document.cookie.split(";")[0].split("=")[1], input: input})
                 .then((response) => {
                     if(response.data === ""){
                         NotificationManager.error('Server error!', "",3000 )
@@ -63,7 +64,7 @@ function AddEditContainer(props) {
                     console.log(error);
                 });
         }else{
-            axios.put("http://localhost:3001/updateContact", {login: auth().login, token: document.cookie.split(";")[0].split("=")[1], input: input, id: selectedContact})
+            axios.put("https://good-red-hedgehog-kilt.cyclic.app/updateContact", {login: auth().login, token: document.cookie.split(";")[0].split("=")[1], input: input, id: selectedContact})
                 .then((response) => {
                     if(response.data === ""){
                         NotificationManager.error('Server error!', "",3000 )

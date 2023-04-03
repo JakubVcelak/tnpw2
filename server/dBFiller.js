@@ -23,6 +23,7 @@ const contacts =[
     {_id: "6408c50f5bc9b76d6ece0433", firstname: "Monika", lastname: "Procházková", phone: "246951387", comment: "Friend from sport team.", group:"friends", work:"dentist",email: "monika.prochazkova@gmail.com",owner:"svobofr"}
 ]
 
+//connect DB
 async function connectDB() {
     try {
         await mongoose.connect(process.env.DATABASE_URI);
@@ -31,7 +32,7 @@ async function connectDB() {
     }
 }
 
-
+//add user
 async function addUser(u) {
     if (await User.findOne({login: u.login}).exec()){
         console.log("USER: "+u.login+" already exist")
@@ -45,6 +46,7 @@ async function addUser(u) {
     console.log("USER: "+u.login+" added")
 }
 
+//add contact
 async function addContact(c) {
     if (await Contact.findOne({_id: c._id}).exec()){
         console.log("CONTACT: "+c._id+" already exist")
@@ -64,7 +66,7 @@ async function addContact(c) {
     console.log("CONTACT: "+c._id+" added")
 }
 
-
+//fillDB
 function fillDB() {
     connectDB()
     users.forEach(u=>addUser(u))

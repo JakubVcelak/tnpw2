@@ -9,16 +9,18 @@ import {SelectedContactContext} from "../App";
 import {NotificationManager} from "react-notifications";
 export const ContactsContext = createContext([])
 
+//container for displaying all comments
 function MainContainer() {
     const auth = useAuthUser()
     const [contacts, setContacts] = useState([])
     const navigate = useNavigate()
     const {selectedContact, setSelectedContact} = useContext(SelectedContactContext)
 
+    //get all comments from database
     useEffect(() => {
         setSelectedContact('')
         setTimeout(()=>{
-            axios.get("http://localhost:3001/contacts", {params:{login: auth().login, token: document.cookie.split(";")[0].split("=")[1]}})
+            axios.get("https://good-red-hedgehog-kilt.cyclic.app/contacts", {params:{login: auth().login, token: document.cookie.split(";")[0].split("=")[1]}})
                 .then((response) => {
                     if(response.data === ""){
                         NotificationManager.error('Server error!', "",3000 )
@@ -31,11 +33,12 @@ function MainContainer() {
         }, 1);
     },[]);
 
+    //TODO předělat?
     function handleAddEdit() {
         navigate('/addedit')
     }
 
-
+    //render all contacts
     function renderContacts(con) {
         return con.map(c=><Contact key={c._id} id={c._id} firstName={c.firstname} lastName={c.lastname} phone={c.phone} comment={c.comment} type={c.type}/>)
     }
