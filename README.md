@@ -9,7 +9,7 @@ Databáze:\
   
 Front-end:\
   -složka client\
-  -start: npm start\
+  -start: npm start
   
 Back-end:\
   -složka server\
